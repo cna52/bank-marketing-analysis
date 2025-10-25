@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 from sklearn.preprocessing import StandardScaler
+from sklearn.impute import SimpleImputer
 
 BINARY_COLUMNS = ['default', 'housing', 'loan', 'deposit']
 ONE_HOT_COLUMNS = ['job', 'marital', 'education', 'contact', 'month', 'poutcome']
@@ -35,11 +36,19 @@ def scale_numeric(df):
     df[NUMERIC_COLUMNS] = scaler.fit_transform(df[NUMERIC_COLUMNS])
     return df
 
+def impute_numeric(df):
+    df = df.copy()
+    imp = SimpleImputer(strategy='median')
+    existing = [c for c in NUMERIC_COLUMNS if c in df.columns]
+    df[existing] = imp.fit_transform(df[existing])
+    return df
+
 def preprocess_pipeline(infile="data/bank.csv", outfile="data/bank_cleaned.csv"):
     df = load_data(infile)
     df = replace_unknowns_with_nan(df)
     df = impute_modes(df, ONE_HOT_COLUMNS)
     df = fix_pdays(df)
+    df = impute_numeric(df)
     df = encode_binaries(df)
     df = one_hot_encode(df)
     df = scale_numeric(df)
