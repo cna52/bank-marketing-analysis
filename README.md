@@ -9,16 +9,33 @@ on the Bank Marketing dataset (Kaggle). It is organized for easy grading and rep
 ## Repo Structure
 
 ```
-cmpt459-project/
+project-root/
+│
 ├── data/
-│   └── bank.csv
+│ └── bank.csv
+│
 ├── notebooks/
-│   ├── 01_data_preprocessing.ipynb
-│   └── 02_eda.ipynb
+│ ├── 01_data_preprocessing.ipynb
+│ ├── 02_eda.ipynb
+│ ├── EDA_Preprocessing.ipynb
+│ ├── elliptic_envelope_outlier_detection.ipynb
+│ ├── final_project.ipynb
+│ ├── grid_search_hyperparameter_tuning.ipynb
+│ ├── hierarchical_cluster_analysis.ipynb
+│ ├── isolation_forest_outlier_detection.ipynb
+│ ├── kmeans_cluster_analysis.ipynb
+│ ├── lasso_regression_feature_selection.ipynb
+│ ├── random_forest_classification.ipynb
+│ ├── rfe_feature_selection.ipynb
+│ └── svm_classification.ipynb
+│
 ├── src/
-│   ├── preprocessing.py
-│   └── visualization.py
+│ ├── preprocessing.py
+│ └── visualization.py
+│ 
+├── .gitignore
 ├── README.md
+│
 └── requirements.txt
 ```
 
@@ -38,10 +55,12 @@ cmpt459-project/
    - [Bank Marketing Dataset](https://www.kaggle.com/datasets/janiobachmann/bank-marketing-dataset)
    - Download `bank.csv` and place it at: `data/bank.csv`
 
-4. **Run the preprocessing notebook**
+4. **Run the preprocessing and EDA notebook**
    - Open Jupyter: `jupyter notebook`
-   - Run: `notebooks/01_data_preprocessing.ipynb`
+   - Run: `notebooks/EDA_Preprocessing.ipynb`
    - It will create `data/bank_cleaned.csv`
 
-5. **Run the EDA notebook**
-   - Run: `notebooks/02_eda.ipynb` to generate plots and quick insights.
+5. **Run the Full Project Analysis**
+   - Open Jupyter: `jupyter notebook`
+   - Run: `final_project.ipynb`
+   - All the Analysis and results will be self contained in this file along with a report for each major section
